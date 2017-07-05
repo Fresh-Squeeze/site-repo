@@ -58,7 +58,17 @@ http://www.tooplate.com/view/2085-neuron
 </div>
 -->
 <!--#include virtual="/components/navbar.html" -->
-<iframe src="/components/navbar.html"></iframe>
+<!-- <iframe src="/components/navbar.html"></iframe> -->
+
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("/components/navbar.html");
+});
+</script>
 
 <!-- Home Section -->
 
