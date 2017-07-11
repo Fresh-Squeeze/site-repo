@@ -87,12 +87,14 @@ http://www.tooplate.com/view/2085-neuron
                          <div class="blog-post-title">
                           	<h2>
 				<script type = "text/javascript">
+				$(function(){
 					var post;
 					$.getJSON(/reviews/posts.json, function(json) {
 						post = json;
 					});
 					var output = Mustache.render("{{title}}", post);
 					document.write(output);
+				});
 				</script>
 				</a></h2>
                          </div>
