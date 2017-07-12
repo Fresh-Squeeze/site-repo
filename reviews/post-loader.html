@@ -24,14 +24,14 @@ http://www.tooplate.com/view/2085-neuron
 <script type="text/javascript" src="/js/mustache.js"></script>
 <script>
 	var postData = { title : "hello world" };
-	function loadPost(){
+	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData);
 		document.getElementByID('postTitle').innerHTML = titleText;
 	}
 </script>
 
 </head>
-<body>
+<body onload = "loadpost()">
 
 <!-- PRE LOADER -->
 
