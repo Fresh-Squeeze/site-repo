@@ -26,7 +26,7 @@ http://www.tooplate.com/view/2085-neuron
 	var postData = { title : "hello world" };
 	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData);
-		document.getElementByID('postTitle').innerHTML = titleText;
+		document.getElementById('postTitle').innerHTML = titleText;
 	}
 </script>
 
