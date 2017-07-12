@@ -30,6 +30,8 @@ http://www.tooplate.com/view/2085-neuron
 	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData[index]);
 		document.getElementById('postTitle').innerHTML = titleText;
+		var authorText = Mustache.render("<a href="#">{{author}}</a>",postData[index]);
+		document.getElementById('postauthor').innerHTML = authorText;
 		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
 		document.getElementById('postdate').innerHTML = dateText;
 	}
@@ -85,11 +87,11 @@ $(function(){
                          
 
                          <div class="blog-post-title">
-                          	<h2 id="postTitle"></a></h2>
+                          	<h2 id="postTitle"></h2>
                          </div>
 
                          <div class="blog-post-format">
-                              <span><a href="#"><img src="images/author-image1.jpg" class="img-responsive img-circle"> Jen Lopez</a></span>
+                              <span id="postauthor"></span>
                               <span id="postdate"></span>
                          </div>
 
