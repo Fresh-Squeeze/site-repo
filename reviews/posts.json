@@ -1,5 +1,4 @@
-posts = '[
-	{
+posts = '[{
 		"title": "Title",
 		"author": "First Last",
 		"date": "Month dd, yyyy",
