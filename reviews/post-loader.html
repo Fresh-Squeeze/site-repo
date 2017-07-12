@@ -25,9 +25,12 @@ http://www.tooplate.com/view/2085-neuron
 <script type="text/javascript" src ="/reviews/posts.json"></script>
 <script>
 	var postData = JSON.parse(posts);
+	var index = 0;
 	function loadpost(){
-		var titleText = Mustache.render("{{title}}", postData[0]);
+		var titleText = Mustache.render("{{title}}", postData[index]);
 		document.getElementById('postTitle').innerHTML = titleText;
+		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
+		document.getElementById('postdate').innerHTML = dateText;
 	}
 </script>
 
@@ -93,23 +96,12 @@ http://www.tooplate.com/view/2085-neuron
                          
 
                          <div class="blog-post-title">
-                          	<h2 id="postTitle">
-				<!-- <script type = "text/javascript">
-				$(function(){
-					var post;
-					$.getJSON(/reviews/posts.json, function(json) {
-						post = json;
-					});
-					var output = Mustache.render("{{title}}", post);
-					document.write(output);
-				});
-				</script> -->
-				</a></h2>
+                          	<h2 id="postTitle"></a></h2>
                          </div>
 
                          <div class="blog-post-format">
                               <span><a href="#"><img src="images/author-image1.jpg" class="img-responsive img-circle"> Jen Lopez</a></span>
-                              <span><i class="fa fa-date"></i> July 22, 2017</span>
+                              <span id="postdate"></span>
                               <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
                          </div>
 
