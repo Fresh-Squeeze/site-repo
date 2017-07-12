@@ -22,10 +22,12 @@ http://www.tooplate.com/view/2085-neuron
 <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
      
 <script type="text/javascript" src="/js/mustache.js"></script>
+<script type="text/javascript" src ="/reviews/posts.json"></script>
 <script>
-	var postData = { title : "hello world" };
+	var postData = JSON.parse(data);
+	var titleData = postdata[0].title;
 	function loadpost(){
-		var titleText = Mustache.render("{{title}}", postData);
+		var titleText = Mustache.render("{{title}}", titleData);
 		document.getElementById('postTitle').innerHTML = titleText;
 	}
 </script>
