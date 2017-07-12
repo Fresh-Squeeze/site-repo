@@ -1,4 +1,4 @@
-{
+posts = '[
 	"sample": {
 		"title": "Title",
 		"author": "First Last",
@@ -53,4 +53,4 @@
 		",
 		"tags": []
 	}
-}
+]';
