@@ -33,17 +33,39 @@ http://www.tooplate.com/view/2085-neuron
 
    var people = [];
 
-   $.getJSON('people.json', function(data) {
+   $.getJSON('posts.json', function(data) {
        $.each(data.person, function(i, f) {
-          var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
-           "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
+          var tblRow = "<tr>" + "<td>" + f.title + "</td>" +
+           "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
            $(tblRow).appendTo("#userdata tbody");
      });
 
    });
 
 });
-</script>	
+</script>
+	
+<script type="text/javascript" src="/js/mustache.js"></script>
+<script type="text/javascript" src ="/reviews/posts.json"></script>
+<script type="text/javascript" src ="/reviews/people.json"></script>
+<script>
+	var postData = JSON.parse(posts);
+	//var authData = JSON.parse(people);
+	var index = 0;
+	//alert(authData[index].roll);
+	function loadpost(){
+		var titleText = Mustache.render("{{title}}", postData[index]);
+		document.getElementById('postTitle').innerHTML = titleText;
+		var authorText = Mustache.render("<a href=\"#\">{{author}}</a>",postData[index]);
+		document.getElementById('postauthor').innerHTML = authorText;
+		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
+		document.getElementById('postdate').innerHTML = dateText;
+		var contentCode = Mustache.render("{{content}}", postData[index]);
+		document.getElementById('postcontent').innerHTML = contentCode;
+		authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index]);
+		document.getElementById('authortitle').innerHTML = authorText;
+	}
+</script>
 	
 </head>
 <body>
@@ -85,10 +107,10 @@ $(function(){
 <div class="profile">
    <table id= "userdata" border="2">
   <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Address</th>
-            <th>City</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th>Content (tags)</th>
         </thead>
       <tbody>
 
