@@ -35,6 +35,7 @@ http://www.tooplate.com/view/2085-neuron
 		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
 		document.getElementById('postdate').innerHTML = dateText;
 		var contentCode = Mustache.render("{{content}}", postData[index]);
+		contentCode = contentCode.slice(1,contentCode.length - 1);
 		document.getElementById('postcontent').innerHTML = contentCode;
 	}
 </script>
