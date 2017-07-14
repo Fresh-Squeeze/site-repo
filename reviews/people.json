@@ -1,5 +1,5 @@
-{
-   "person": [
+
+  "person": [
        {
            "firstName": "Muhammad",
            "lastName": "Yusuf",
@@ -19,4 +19,3 @@
            "roll": 40
        }
    ]
-}
