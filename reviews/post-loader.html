@@ -24,10 +24,12 @@ http://www.tooplate.com/view/2085-neuron
 <!-- JSON post loader scripting -->	
 <script type="text/javascript" src="/js/mustache.js"></script>
 <script type="text/javascript" src ="/reviews/posts.json"></script>
+<script type="text/javascript" src ="/reviews/people.json"></script>
 <script>
 	var postData = JSON.parse(posts);
+	var authData = JSON.parse(people);
 	var index = 0;
-	alert(postData[index].author);
+	alert(authData[index].roll);
 	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData[index]);
 		document.getElementById('postTitle').innerHTML = titleText;
