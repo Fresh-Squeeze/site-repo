@@ -34,7 +34,7 @@ http://www.tooplate.com/view/2085-neuron
    var people = [];
 
    $.getJSON('posts.json', function(data) {
-       $.each(data.person, function(i, f) {
+       $.each(data.posts, function(i, f) {
           var tblRow = "<tr>" + "<td>" + f.title + "</td>" +
            "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
            $(tblRow).appendTo("#userdata tbody");
