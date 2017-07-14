@@ -29,7 +29,7 @@ http://www.tooplate.com/view/2085-neuron
 	var postData = JSON.parse(posts);
 	var authData = JSON.parse(people);
 	var index = 0;
-	alert(authData[index].roll);
+	//alert(authData[index].roll);
 	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData[index]);
 		document.getElementById('postTitle').innerHTML = titleText;
