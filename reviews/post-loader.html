@@ -36,6 +36,7 @@ http://www.tooplate.com/view/2085-neuron
 		document.getElementById('postdate').innerHTML = dateText;
 		var contentCode = Mustache.render("{{content}}", postData[index]);
 		document.getElementById('postcontent').innerHTML = contentCode;
+		authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index])
 	}
 </script>
 	
@@ -98,11 +99,8 @@ $(function(){
 			    
                          <div class="blog-author">
                               <div class="media">
-                                   <div class="media-object pull-left">
-                                        <img src="images/author-image1.jpg" class="img-circle img-responsive" alt="blog">
-                                   </div>
                                    <div class="media-body">
-                                        <h3 class="media-heading"><a href="#">Jen Lopez ( Designer )</a></h3>
+                                        <h3 id="authortitle" class="media-heading"></h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                                    </div>
                               </div>
