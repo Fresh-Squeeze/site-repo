@@ -36,7 +36,8 @@ http://www.tooplate.com/view/2085-neuron
 		document.getElementById('postdate').innerHTML = dateText;
 		var contentCode = Mustache.render("{{content}}", postData[index]);
 		document.getElementById('postcontent').innerHTML = contentCode;
-		authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index])
+		authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index]);
+		document.getElementById('authortitle').innerHTML = authorText;
 	}
 </script>
 	
