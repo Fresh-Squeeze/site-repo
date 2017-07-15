@@ -24,22 +24,22 @@ http://www.tooplate.com/view/2085-neuron
 <!-- JSON post loader scripting -->	
 <script type="text/javascript" src="/js/mustache.js"></script>
 <script type="text/javascript" src ="/reviews/posts.json"></script>
-<script type="text/javascript" src ="/reviews/people.json"></script>
+<script type="text/javascript" src ="/reviews/authors.json"></script>
 <script>
 	var postData = JSON.parse(posts);
-	//var authData = JSON.parse(people);
-	var index = 1;
-	//alert(authData[index].roll);
+	var authData = JSON.parse(authors);
+	var postIndex = 1;
+	var authIndex = postData[postIndex].author;
 	function loadpost(){
-		var titleText = Mustache.render("{{title}}", postData[index]);
+		var titleText = Mustache.render("{{title}}", postData[postIndex]);
 		document.getElementById('postTitle').innerHTML = titleText;
-		var authorText = Mustache.render("<a href=\"#\">{{author}}</a>",postData[index]);
+		var authorText = Mustache.render("<a href=\"#\">{{firstname}} {{lastname}}</a>", authData[authIndex]);
 		document.getElementById('postauthor').innerHTML = authorText;
-		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
+		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[postIndex])
 		document.getElementById('postdate').innerHTML = dateText;
-		var contentCode = Mustache.render("{{content}}", postData[index]);
+		var contentCode = Mustache.render("{{content}}", postData[postIndex]);
 		document.getElementById('postcontent').innerHTML = contentCode;
-		authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index]);
+		authorText = Mustache.render("<a href=\"#\">About {{firstname}}</a>", authData[authIndex]);
 		document.getElementById('authortitle').innerHTML = authorText;
 	}
 </script>
