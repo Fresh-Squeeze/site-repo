@@ -28,7 +28,7 @@ http://www.tooplate.com/view/2085-neuron
 <script>
 	var postData = JSON.parse(posts);
 	var authData = JSON.parse(authors);
-	var postIndex = 1;
+	var postIndex = 0;
 	var authIndex = postData[postIndex].author;
 	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData[postIndex]);
