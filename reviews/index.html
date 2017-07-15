@@ -16,6 +16,7 @@ http://www.tooplate.com/view/2085-neuron
 -->
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel = "stylesheet" href="/css/tableStyle.css">
 
 <!-- Main css -->
 <link rel="stylesheet" href="/css/style.css">
@@ -40,12 +41,17 @@ http://www.tooplate.com/view/2085-neuron
        $.each(postsTable, function(i, f) {
           var tblRow = "<tr>" + "<td>" + f.title + "</td>" +
            "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
-           $(tblRow).appendTo("#userdata tbody");
+           $(tblRow).appendTo("#keywords tbody");
      });
 
 });
 </script>
+<script>
 	
+	$(function(){
+  $('#keywords').tablesorter(); 
+});
+</script>
 
 <script>
 	var postData = JSON.parse(posts);
@@ -104,7 +110,7 @@ $(function(){
 <!-- About Section -->
 <div class="wrapper">
 <div class="profile">
-   <table id= "userdata" border="2">
+   <table id= "keywords" border="2">
   <thead>
             <th>Title</th>
             <th>Author</th>
