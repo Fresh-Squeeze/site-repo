@@ -35,9 +35,9 @@ http://www.tooplate.com/view/2085-neuron
     $(function() {
 
 
-   var posts = JSON.parse(posts);
+   var postsTable = JSON.parse(posts);
 	    
-       $.each(posts, function(i, f) {
+       $.each(postsTable, function(i, f) {
           var tblRow = "<tr>" + "<td>" + f.title + "</td>" +
            "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
            $(tblRow).appendTo("#userdata tbody");
