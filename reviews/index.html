@@ -24,6 +24,10 @@ http://www.tooplate.com/view/2085-neuron
 <!-- Script source line for navbar/footer import -->
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
+<script type="text/javascript" src="/js/mustache.js"></script>
+<script type="text/javascript" src ="/reviews/posts.json"></script>
+<script type="text/javascript" src ="/reviews/people.json"></script>
+	
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
 <script>
@@ -31,23 +35,18 @@ http://www.tooplate.com/view/2085-neuron
     $(function() {
 
 
-   var posts = [];
-
-   $.getJSON('posts.json', function(data) {
-       $.each(data.posts, function(i, f) {
+   var posts = JSON.parse(posts);
+	    
+       $.each(posts, function(i, f) {
           var tblRow = "<tr>" + "<td>" + f.title + "</td>" +
            "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
            $(tblRow).appendTo("#userdata tbody");
      });
 
-   });
-
 });
 </script>
 	
-<script type="text/javascript" src="/js/mustache.js"></script>
-<script type="text/javascript" src ="/reviews/posts.json"></script>
-<script type="text/javascript" src ="/reviews/people.json"></script>
+
 <script>
 	var postData = JSON.parse(posts);
 	//var authData = JSON.parse(people);
