@@ -43,6 +43,8 @@ http://www.tooplate.com/view/2085-neuron
 		document.getElementById('authortitle').innerHTML = authorText;
 		var authorDescription = Mustache.render("{{bio}}", authData[authIndex]);
 		document.getElementById('authordes').innerHTML = authorDescription;
+		var authorEmail = Mustache.render("<a href="mailto:{{email}}">Contact {{first}}</a>", authData[authIndex]);
+		document.getElementById('authormail').innerHTML = authorEmail;
 	}
 </script>
 	
@@ -108,6 +110,7 @@ $(function(){
                                    <div class="media-body">
                                         <h3 id="authortitle" class="media-heading"></h3>
                                         <p id="authordes"></p>
+					<p id="authmail"></p>
                                    </div>
                               </div>
 		       </div>
