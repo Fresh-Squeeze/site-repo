@@ -1,22 +1,21 @@
 {
-  "person": [
-       {
-           "firstName": "Muhammad",
+  "Post_1" : {        
+  "firstName": "Muhammad",
            "lastName": "Yusuf",
            "job": "Computer Scientist",
            "roll": 20
        },
-       {
-           "firstName": "Bruce",
-           "lastName": "Wayne",
-           "job": "Playboy",
-           "roll": 30
+       
+"Post_2" : {        
+  "firstName": "Muhammad",
+           "lastName": "Yusuf",
+           "job": "Computer Scientist",
+           "roll": 20
        },
-       {
-           "firstName": "Peter",
-           "lastName": "Parker",
-           "job": "Photographer",
-           "roll": 40
+"Post_3" : {        
+  "firstName": "Pj",
+           "lastName": "Mara",
+           "job": "Big Baller",
+           "roll": 20
        }
-   ]
 }
