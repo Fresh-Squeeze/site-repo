@@ -43,7 +43,7 @@ http://www.tooplate.com/view/2085-neuron
 		document.getElementById('authortitle').innerHTML = authorText;
 		var authorDescription = Mustache.render("{{bio}}", authData[authIndex]);
 		document.getElementById('authordes').innerHTML = authorDescription;
-		var authorEmail = Mustache.render("<a href=\"mailto:{{email}}\">Contact {{first}}</a>", authData[authIndex]);
+		var authorEmail = Mustache.render("<a href=\"mailto:{{email}}\">Contact {{firstname}}</a>", authData[authIndex]);
 		document.getElementById('authormail').innerHTML = authorEmail;
 	}
 </script>
