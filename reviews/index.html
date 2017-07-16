@@ -39,7 +39,7 @@ http://www.tooplate.com/view/2085-neuron
    var postsTable = JSON.parse(posts);
 	    
        $.each(postsTable, function(i, f) {
-          var index = Integer.toString(i)
+          var index = i.toString()
 	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
 	       var tblRow = "<tr>" + "<td>" + "<a href= link> f.title </a>" + "</td>" +
            "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
