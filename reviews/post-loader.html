@@ -26,9 +26,11 @@ http://www.tooplate.com/view/2085-neuron
 <script type="text/javascript" src ="/reviews/posts.json"></script>
 <script type="text/javascript" src ="/reviews/authors.json"></script>
 <script>
+	var query = document.location.href.split('?')[1];
+	var postID = query.slice(2, query.length -1);
 	var postData = JSON.parse(posts);
 	var authData = JSON.parse(authors);
-	var postIndex = 0;
+	var postIndex = parseInt(postID);
 	var authIndex = postData[postIndex].author;
 	function loadpost(){
 		var titleText = Mustache.render("{{title}}", postData[postIndex]);
