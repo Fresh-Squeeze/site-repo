@@ -32,7 +32,7 @@ http://www.tooplate.com/view/2085-neuron
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
 <script>
-
+//set up the table
     $(function() {
 
 
@@ -41,8 +41,8 @@ http://www.tooplate.com/view/2085-neuron
        $.each(postsTable, function(i, f) {
           var index = i.toString()
 	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
-	       var tblRow = "<tr>" + "<td>" + "<a href= link> f.title </a>" + "</td>" +
-           "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "</tr>"
+	       var tblRow = "<tr>" + "<td>" + f.title + "</td>" +
+           "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "<td>" + index + "</td>" + "</tr>"
            $(tblRow).appendTo("#keywords tbody");
      });
 
@@ -118,6 +118,7 @@ $(function(){
             <th>Author</th>
             <th>Date</th>
             <th>Content (tags)</th>
+	  <th> Click Here </th>
         </thead>
       <tbody>
 
