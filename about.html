@@ -11,11 +11,8 @@
 
 <title>Neuron Template - About</title>
 <!--
-
 Template 2085 Neuron
-
 http://www.tooplate.com/view/2085-neuron
-
 -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -27,26 +24,6 @@ http://www.tooplate.com/view/2085-neuron
 <!-- Script source line for navbar/footer import -->
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
-<script type="text/javascript" src ="/reviews/posts.json"></script>
-<script type="text/javascript" src ="/reviews/people.json"></script>
-
-<script>
-//set up the table
-    $(function() {
-   var postsTable = JSON.parse(posts);
-	    
-       $.each(postsTable, function(i, f) {
-          var index = i.toString()
-	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
-	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post-loader.html> Click Here </a>" + " " + f.title + "</td>" +
-           "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "<td>" + index + "</td>" + "</tr>"
-           $(tblRow).appendTo("#keywords tbody");
-     });
-});
-</script>
-<script>
-	
 </head>
 <body>
 
@@ -89,19 +66,6 @@ $(function(){
      <div class="container">
           <div class="row">
 
-		<table id= "keywords" border="2">
-		  <thead>
-		            <th>Title</th>
-		            <th>Author</th>
-		            <th>Date</th>
-       			     <th>Content (tags)</th>
-			  <th> Click Here </th>
- 		     </thead>
-   		   <tbody>
-
- 		      </tbody>
-		   </table>
-		  
                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <div class="col-md-4 col-sm-4">
                          <h2>Our Story</h2>
