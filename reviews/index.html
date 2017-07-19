@@ -42,7 +42,7 @@ http://www.tooplate.com/view/2085-neuron
           var index = i.toString()
 	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
 	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
-           "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.content + "</td>" + "<td>" + index + "</td>" + "</tr>"
+           "<td>" + f.author + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td>" + "<td>" + index + "</td>" + "</tr>"
            $(tblRow).appendTo("#keywords tbody");
      });
 
@@ -121,7 +121,7 @@ $(function(){
 		            <th>Title</th>
 		            <th>Author</th>
 		            <th>Date</th>
-       			     <th>Content (tags)</th>
+       			     <th>Tags</th>
 			  <th> Click Here </th>
  		     </thead>
    		   <tbody>
