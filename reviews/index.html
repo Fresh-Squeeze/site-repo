@@ -34,17 +34,24 @@ http://www.tooplate.com/view/2085-neuron
 <script>
 //set up the table
     $(function() {
-
+	    var query = '', category = '', item = '';
+	    if(document.location.href.split('?').length > 1){
+	 query = document.location.href.split('?')[1];
+	 category = query.split('=')[0];
+	 item = query.split('=')[1];
+    }
 
    var postsTable = JSON.parse(posts);
 	    var authsTable = JSON.parse(authors);
 	    
        $.each(postsTable, function(i, f) {
+	       if(eval('category != \'\' && f.' + category + '==' + item)){
           var index = i.toString()
 	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
 	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
            "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
            $(tblRow).appendTo("#keywords tbody");
+       }
      });
 
 });
