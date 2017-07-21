@@ -55,8 +55,8 @@ img { border: 0; max-width: 100%; }
 h1 { 
   font-family: 'Merriweather', serif;
   font-weight: bold;
-  font-size: 4.0em;
-  line-height: 1.7em;
+  font-size: 10.0em;
+  line-height: 4.0em;
   margin-bottom: 10px;
   text-align: center;
 }
