@@ -45,13 +45,22 @@ http://www.tooplate.com/view/2085-neuron
 	    var authsTable = JSON.parse(authors);
 	    
        $.each(postsTable, function(i, f) {
-	       if(eval('category != \'\' && f.' + category + '==' + item)){
+	       if(category != ''){
+	       if(eval('f.' + category + '==' + item)){
           var index = i.toString()
 	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
 	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
            "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
            $(tblRow).appendTo("#keywords tbody");
        }
+	       }
+	       else {
+		        var index = i.toString()
+	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
+	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
+           "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
+           $(tblRow).appendTo("#keywords tbody");
+	       }
      });
 
 });
