@@ -38,7 +38,8 @@
 			$(function() {
 				var category = [], item = [];
 				if (document.location.href.split('?').length > 1) {
-					var query = document.location.href.split('?')[1].spilt('&');
+					var str = document.location.href.split('?')[1];
+					var query = str.split('&');
 					for(i = 0; i < query.length; i++) {
 						var temp = query[i];
 						category.push(temp.split('=')[0]);
