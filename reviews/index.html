@@ -39,7 +39,7 @@
 				var category = [], item = [];
 				if (document.location.href.split('?').length > 1) {
 					var query = document.location.href.split('?')[1].spilt('&');
-					for(int i = 0; i < query.length; i++) {
+					for(i = 0; i < query.length; i++) {
 						var temp = query[i];
 						category.push(temp.split('=')[0]);
 						item.push('\'' + temp.split('=')[1] + '\'');
