@@ -1,258 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<head>
 
-<title>Neuron Template - About</title>
-<!--
-Template 2085 Neuron
-http://www.tooplate.com/view/2085-neuron
--->
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel = "stylesheet" href="/css/tableStyle.css">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<!-- Main css -->
-<link rel="stylesheet" href="/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+		<title>Neuron Template - About</title>
+		<!--
+		Template 2085 Neuron
+		http://www.tooplate.com/view/2085-neuron
+		-->
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/tableStyle.css">
 
-<!-- Script source line for navbar/footer import -->
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<!-- Main css -->
+		<link rel="stylesheet" href="/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
 
-<script type="text/javascript" src="/js/mustache.js"></script>
-<script type="text/javascript" src ="/reviews/posts.json"></script>
-<script type="text/javascript" src ="/reviews/authors.json"></script>
-	
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+		<!-- Script source line for navbar/footer import -->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-<script>
-//set up the table
-    $(function() {
-	    var query = '', category = '', item = '';
-	    if(document.location.href.split('?').length > 1){
-	 query = document.location.href.split('?')[1];
-	 category = query.split('=')[0];
-	 item = '\'' + query.split('=')[1] + '\'';
-    }
+		<script type="text/javascript" src="/js/mustache.js"></script>
+		<script type="text/javascript" src="/reviews/posts.json"></script>
+		<script type="text/javascript" src="/reviews/authors.json"></script>
 
-   var postsTable = JSON.parse(posts);
-	    var authsTable = JSON.parse(authors);
-	    
-       $.each(postsTable, function(i, f) {
-	       if(category != ''){
-	       if(eval('f.' + category + '==' + item)){
-          var index = i.toString()
-	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
-	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
-           "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
-           $(tblRow).appendTo("#keywords tbody");
-       }
-	       }
-	       else {
-		        var index = i.toString()
-	  var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
-	       var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
-           "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
-           $(tblRow).appendTo("#keywords tbody");
-	       }
-     });
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+		</script>
 
-});
-</script>
-<script>
-	
-//	$(function(){
- // $('#keywords').tablesorter(); 
-//});
-</script>
+		<script>
+			//set up the table
+			$(function() {
+				var query = '',
+					category = '',
+					item = '';
+				if (document.location.href.split('?').length > 1) {
+					query = document.location.href.split('?')[1];
+					category = query.split('=')[0];
+					item = '\'' + query.split('=')[1] + '\'';
+				}
+				var postsTable = JSON.parse(posts);
+				var authsTable = JSON.parse(authors);
 
-<script>
-	var postData = JSON.parse(posts);
-	//var authData = JSON.parse(people);
-	var index = 0;
-	//alert(authData[index].roll);
-	function loadpost(){
-		var titleText = Mustache.render("{{title}}", postData[index]);
-		document.getElementById('postTitle').innerHTML = titleText;
-		var authorText = Mustache.render("<a href=\"#\">{{author}}</a>",postData[index]);
-		document.getElementById('postauthor').innerHTML = authorText;
-		var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
-		document.getElementById('postdate').innerHTML = dateText;
-		var contentCode = Mustache.render("{{content}}", postData[index]);
-		document.getElementById('postcontent').innerHTML = contentCode;
-		authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index]);
-		document.getElementById('authortitle').innerHTML = authorText;
-	}
-</script>
-	
-</head>
-<body>
+				$.each(postsTable, function(i, f) {
+					if (category != '') {
+						if (eval('f.' + category + '==' + item)) {
+							var index = i.toString()
+							var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
+							var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
+								"<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
+							$(tblRow).appendTo("#keywords tbody");
+						}
+					} else {
+						var index = i.toString()
+						var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
+						var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
+							"<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
+						$(tblRow).appendTo("#keywords tbody");
+					}
+				});
+			});
+		</script>
+		<script>
+			//	$(function(){
+			// $('#keywords').tablesorter(); 
+			//});
+		</script>
 
-<!-- PRE LOADER -->
+		<script>
+			var postData = JSON.parse(posts);
+			//var authData = JSON.parse(people);
+			var index = 0;
+			//alert(authData[index].roll);
+			function loadpost() {
+				var titleText = Mustache.render("{{title}}", postData[index]);
+				document.getElementById('postTitle').innerHTML = titleText;
+				var authorText = Mustache.render("<a href=\"#\">{{author}}</a>", postData[index]);
+				document.getElementById('postauthor').innerHTML = authorText;
+				var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
+				document.getElementById('postdate').innerHTML = dateText;
+				var contentCode = Mustache.render("{{content}}", postData[index]);
+				document.getElementById('postcontent').innerHTML = contentCode;
+				authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index]);
+				document.getElementById('authortitle').innerHTML = authorText;
+			}
+		</script>
 
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
+	</head>
 
-<!-- Navigation section  -->
-<div id="nav-placeholder">
-</div>
-<script>
-$(function(){
-  $("#nav-placeholder").load("/components/navbar.html");
-});
-</script>
+	<body>
 
-<!-- Home Section -->
+		<!-- PRE LOADER -->
 
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>Reviews</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- About Section -->
-<section id="about">
-     <div class="container">
-          <div class="row">
-		  
-		<div class="wrapper">
-		<div class="profile">
-		   <table id= "keywords" border="2">
-		  <thead>
-		            <th>Title</th>
-		            <th>Author</th>
-		            <th>Date</th>
-       			     <th>Tags</th>
- 		     </thead>
-   		   <tbody>
-
- 		      </tbody>
-		   </table>
-
-		</div>
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-wordpress">
+				<span class="sk-inner-circle"></span>
+			</div>
 		</div>
 
-               <div class="col-md-offset-1 col-md-10 col-sm-12">
-                    <div class="col-md-4 col-sm-4">
-                         <h2>Our Story</h2>
-                         <p>Integer eget tortor justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit <strong>Ut enim ad minim veniam, quis nostrud</strong> exercitation ullamco.</p>
-                    </div>
+		<!-- Navigation section  -->
+		<div id="nav-placeholder">
+		</div>
+		<script>
+			$(function() {
+				$("#nav-placeholder").load("/components/navbar.html");
+			});
+		</script>
 
-                    <div class="col-md-4 col-sm-4">
-                         <h2>New Design</h2>
-                         <p>Quisque vitae felis eros. Suspendisse quis leo molestie, iaculis sapien id, hendrerit augue. Phasellus fermentum.</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                    </div>
+		<!-- Home Section -->
 
-                    <div class="col-md-4 col-sm-4">
-                         <h2>HTML CSS</h2>
-                         <p>Vivamus non scelerisque ex, et interdum leo. In bibendum lacus vitae felis egestas, at consectetur metus facilisis.</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                    </div>
+		<section id="home" class="main-about parallax-section">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
 
-                    <div class="col-md-6 col-sm-6">
-                         <h3>Fully Customizable!</h3>
-                         <p>Maecenas quis pulvinar neque, non dapibus orci. Integer non suscipit dui. In eu tempor sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras porta lacus ac sagittis imperdiet. Vestibulum eget mattis quam.</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita.</p>
-                    </div>
+					<div class="col-md-12 col-sm-12">
+						<h1>Reviews</h1>
+					</div>
 
-                    <div class="col-md-6 col-sm-6">
-                         <img src="images/about-image.jpg" class="img-responsive" alt="About Image">
-                    </div>
+				</div>
+			</div>
+		</section>
 
-                    <div class="clearfix"></div>
+		<!-- About Section -->
+		<section id="about">
+			<div class="container">
+				<div class="row">
 
-                    <div class="col-md-4 col-sm-4">
-                         <img src="images/about-image1.jpg" class="img-responsive" alt="Blog Image">
-                         <h3>Section One</h3>
-                         <p>Pellentesque lobortis velit mi, sed volutpat enim facilisis at. Maecenas quis pulvinar neque, non dapibus orci.</p>
-                    </div>
+					<div class="wrapper">
+						<div class="profile">
+							<table id="keywords" border="2">
+								<thead>
+									<th>Title</th>
+									<th>Author</th>
+									<th>Date</th>
+									<th>Tags</th>
+								</thead>
+								<tbody>
 
-                    <div class="col-md-4 col-sm-4">
-                         <img src="images/about-image2.jpg" class="img-responsive" alt="Blog Image">
-                         <h3>Section Two</h3>
-                         <p>Pellentesque lobortis velit mi, sed volutpat enim facilisis at. Maecenas quis pulvinar neque, non dapibus orci.</p>
-                    </div>
+								</tbody>
+							</table>
 
-                    <div class="col-md-4 col-sm-4">
-                         <img src="images/about-image3.jpg" class="img-responsive" alt="Blog Image">
-                         <h3>Section Three</h3>
-                         <p>Pellentesque lobortis velit mi, sed volutpat enim facilisis at. Maecenas quis pulvinar neque, non dapibus orci.</p>
-                    </div>
-					
-                    <h3>One Column</h3>
-                    <p>Fusce finibus ac orci ut feugiat. Duis accumsan dui non augue ullamcorper, at porta elit lacinia. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras at est non quam mattis hendrerit. Fusce purus massa, pretium malesuada eros nec, feugiat iaculis sem.</p>
-               </div>
+						</div>
+					</div>
 
-          </div>
-     </div>
-</section>
+					<div class="col-md-offset-1 col-md-10 col-sm-12">
+						<div class="col-md-4 col-sm-4">
+							<h2>Our Story</h2>
+							<p>Integer eget tortor justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit <strong>Ut enim ad minim veniam, quis nostrud</strong> exercitation ullamco.</p>
+						</div>
 
-<!-- Footer Section -->
+						<div class="col-md-4 col-sm-4">
+							<h2>New Design</h2>
+							<p>Quisque vitae felis eros. Suspendisse quis leo molestie, iaculis sapien id, hendrerit augue. Phasellus fermentum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Ut enim ad minim veniam, quis nostrud exercitation.</p>
+						</div>
 
-<footer>
-     <div class="container">
-          <div class="row">
+						<div class="col-md-4 col-sm-4">
+							<h2>HTML CSS</h2>
+							<p>Vivamus non scelerisque ex, et interdum leo. In bibendum lacus vitae felis egestas, at consectetur metus facilisis.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Ut enim ad minim veniam, quis nostrud exercitation.</p>
+						</div>
 
-               <div class="col-md-5 col-md-offset-1 col-sm-6">
-                    <h3>Neuron Studio</h3>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <div class="footer-copyright">
-                         <p>Copyright &copy; 2017 Your Company - Design: Tooplate</p>
-                    </div>
-               </div>
+						<div class="col-md-6 col-sm-6">
+							<h3>Fully Customizable!</h3>
+							<p>Maecenas quis pulvinar neque, non dapibus orci. Integer non suscipit dui. In eu tempor sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras porta lacus ac sagittis imperdiet. Vestibulum eget mattis quam.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita.</p>
+						</div>
 
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Talk to us</h3>
-                    <p><i class="fa fa-globe"></i> 512 Delicious Street, San Francisco, CA 10880</p>
-                    <p><i class="fa fa-phone"></i> 010-020-0990</p>
-                    <p><i class="fa fa-save"></i> info@company.com</p>
-               </div>
+						<div class="col-md-6 col-sm-6">
+							<img src="images/about-image.jpg" class="img-responsive" alt="About Image">
+						</div>
 
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr>
-               </div>
+						<div class="clearfix"></div>
 
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="#" class="fa fa-facebook"></a></li>
-                         <li><a href="#" class="fa fa-twitter"></a></li>
-                         <li><a href="#" class="fa fa-google-plus"></a></li>
-                         <li><a href="#" class="fa fa-dribbble"></a></li>
-                         <li><a href="#" class="fa fa-linkedin"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
+						<div class="col-md-4 col-sm-4">
+							<img src="images/about-image1.jpg" class="img-responsive" alt="Blog Image">
+							<h3>Section One</h3>
+							<p>Pellentesque lobortis velit mi, sed volutpat enim facilisis at. Maecenas quis pulvinar neque, non dapibus orci.</p>
+						</div>
 
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+						<div class="col-md-4 col-sm-4">
+							<img src="images/about-image2.jpg" class="img-responsive" alt="Blog Image">
+							<h3>Section Two</h3>
+							<p>Pellentesque lobortis velit mi, sed volutpat enim facilisis at. Maecenas quis pulvinar neque, non dapibus orci.</p>
+						</div>
 
-<!-- SCRIPTS -->
+						<div class="col-md-4 col-sm-4">
+							<img src="images/about-image3.jpg" class="img-responsive" alt="Blog Image">
+							<h3>Section Three</h3>
+							<p>Pellentesque lobortis velit mi, sed volutpat enim facilisis at. Maecenas quis pulvinar neque, non dapibus orci.</p>
+						</div>
 
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery.parallax.js"></script>
-<script src="/js/custom.js"></script>
+						<h3>One Column</h3>
+						<p>Fusce finibus ac orci ut feugiat. Duis accumsan dui non augue ullamcorper, at porta elit lacinia. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras at est non quam mattis hendrerit. Fusce purus massa, pretium malesuada eros nec, feugiat iaculis sem.</p>
+					</div>
 
-</body>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer Section -->
+
+		<footer>
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-5 col-md-offset-1 col-sm-6">
+						<h3>Neuron Studio</h3>
+						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+						<div class="footer-copyright">
+							<p>Copyright &copy; 2017 Your Company - Design: Tooplate</p>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-md-offset-1 col-sm-6">
+						<h3>Talk to us</h3>
+						<p><i class="fa fa-globe"></i> 512 Delicious Street, San Francisco, CA 10880</p>
+						<p><i class="fa fa-phone"></i> 010-020-0990</p>
+						<p><i class="fa fa-save"></i> info@company.com</p>
+					</div>
+
+					<div class="clearfix col-md-12 col-sm-12">
+						<hr>
+					</div>
+
+					<div class="col-md-12 col-sm-12">
+						<ul class="social-icon">
+							<li><a href="#" class="fa fa-facebook"></a></li>
+							<li><a href="#" class="fa fa-twitter"></a></li>
+							<li><a href="#" class="fa fa-google-plus"></a></li>
+							<li><a href="#" class="fa fa-dribbble"></a></li>
+							<li><a href="#" class="fa fa-linkedin"></a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+
+		<!-- Back top -->
+		<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+		<!-- SCRIPTS -->
+
+		<script src="/js/jquery.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.parallax.js"></script>
+		<script src="/js/custom.js"></script>
+
+	</body>
+
 </html>
