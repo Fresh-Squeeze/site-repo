@@ -36,31 +36,30 @@
 		<script>
 			//set up the table
 			$(function() {
-				var query = '',
-					category = '',
-					item = '';
+				var category = [], item = [];
 				if (document.location.href.split('?').length > 1) {
-					query = document.location.href.split('?')[1];
-					category = query.split('=')[0];
-					item = '\'' + query.split('=')[1] + '\'';
+					var query = document.location.href.split('?')[1].spilt('&');
+					for(int i = 0; i < query.length; i++) {
+						var temp = query[i];
+						category.push(temp.split('=')[0]);
+						item.push('\'' + temp.split('=')[1] + '\'');
+					}
 				}
 				var postsTable = JSON.parse(posts);
 				var authsTable = JSON.parse(authors);
 
 				$.each(postsTable, function(i, f) {
-					if (category != '') {
-						if (eval('f.' + category + '==' + item)) {
-							var index = i.toString()
-							var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
-							var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
-								"<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
-							$(tblRow).appendTo("#keywords tbody");
+					if (category.length > 0) {
+						for(int i = 0; i < category.length; i++) {
+							if (eval('f.' + category[i] + '.toString() == ' + item[i])) {
+								var index = i.toString()
+								var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
+								$(tblRow).appendTo("#keywords tbody");
+							}
 						}
 					} else {
 						var index = i.toString()
-						var link = "http://freshsqueeze.me/reviews/post-loader.html" + index;
-						var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" +
-							"<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
+						var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
 						$(tblRow).appendTo("#keywords tbody");
 					}
 				});
@@ -71,26 +70,6 @@
 			// $('#keywords').tablesorter(); 
 			//});
 		</script>
-
-		<script>
-			var postData = JSON.parse(posts);
-			//var authData = JSON.parse(people);
-			var index = 0;
-			//alert(authData[index].roll);
-			function loadpost() {
-				var titleText = Mustache.render("{{title}}", postData[index]);
-				document.getElementById('postTitle').innerHTML = titleText;
-				var authorText = Mustache.render("<a href=\"#\">{{author}}</a>", postData[index]);
-				document.getElementById('postauthor').innerHTML = authorText;
-				var dateText = Mustache.render("<i class=\"fa fa-date\"></i> {{date}}", postData[index])
-				document.getElementById('postdate').innerHTML = dateText;
-				var contentCode = Mustache.render("{{content}}", postData[index]);
-				document.getElementById('postcontent').innerHTML = contentCode;
-				authorText = Mustache.render("<a href=\"#\">About {{author}}</a>", postData[index]);
-				document.getElementById('authortitle').innerHTML = authorText;
-			}
-		</script>
-
 	</head>
 
 	<body>
