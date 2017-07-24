@@ -51,7 +51,7 @@
 				
 				if (category.length > 0) {
 					for(i = 0; i < category.length; i++) {
-						$.each(postsTable, function(i, f) {
+						$.each(postsTable, function(i, f)) {
 							if (eval('f.' + category[i] + '.toString() == ' + item[i])) {
 								var index = i.toString()
 								var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
@@ -60,7 +60,7 @@
 						}
 					}
 				} else {
-					$.each(postsTable, function(i, f) {
+					$.each(postsTable, function(i, f)) {
 						var index = i.toString()
 						var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
 						$(tblRow).appendTo("#keywords tbody");
