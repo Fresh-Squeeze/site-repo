@@ -57,16 +57,15 @@
 								var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
 								$(tblRow).appendTo("#keywords tbody");
 							}
-						}
+						});
 					}
 				} else {
 					$.each(postsTable, function(i, f){
 						var index = i.toString()
 						var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
 						$(tblRow).appendTo("#keywords tbody");
-					}
+					});
 				}
-				);
 			});
 		</script>
 		<script>
