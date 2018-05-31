@@ -53,7 +53,7 @@
 						for(i = 0; i < category.length; i++) {
 							if (eval('f.' + category[i] + '.toString() == ' + item[i])) {
 								var index = i.toString()
-								var tblRow = "<tr>" + "<td>" + "<a href = http://freshsqueeze.me/reviews/post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
+								var tblRow = "<tr>" + "<td>" + "<a href = post?id=" + index + ">" + f.title + "</a></td>" + "<td>" + authsTable[f.author].firstname + " " + authsTable[f.author].lastname + "</td>" + "<td>" + f.date + "</td>" + "<td>" + f.tags + "</td></tr>"
 								$(tblRow).appendTo("#keywords tbody");
 								break;
 							}
